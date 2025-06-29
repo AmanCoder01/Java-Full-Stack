@@ -15,6 +15,7 @@ public class UserService {
         User user = new User(username,contact,password,fullName);
         userMap.put(username,user);
 
+
         currentUser = user;
         System.out.println("Registration Successful..");
         return true;
