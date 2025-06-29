@@ -5,8 +5,15 @@
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <!-- bean definitions here -->
-    <bean id="myBean" class="com.example.bean.MyBean">
-        <property name="message" value="I am first Bean"/>
+    <bean id="userDataProvider" class="com.ioc.coupling.UserDatabaseProvider"/>
+    <bean id="webServiceProvider" class="com.ioc.coupling.WebServiceProvider"/>
+
+    <bean id="userManagerWithUserDataProvider" class="com.ioc.coupling.UserManager">
+        <constructor-arg ref="userDataProvider"/>
+    </bean>
+
+    <bean id="userManagerWithWebServiceProvider" class="com.ioc.coupling.UserManager">
+        <constructor-arg ref="webServiceProvider"/>
     </bean>
 
 </beans>

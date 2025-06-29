@@ -2,9 +2,9 @@ public class Train {
     private int trainId;
     private String name;
     private String source;
-    String destination;
-    int totalSeats;
-    int availableSeats;
+    private String destination;
+    private int totalSeats;
+    private  int availableSeats;
 
     public Train(int trainId, String name, String source, String destination, int totalSeats) {
         this.trainId = trainId;
@@ -65,11 +65,21 @@ public class Train {
 
     @Override
     public String toString() {
-        return name ;
+        return trainId+ " | "+ name+ " | " + source + " -> "+ destination + " Seats Available: "+ availableSeats ;
     }
 
 
-    void bookTrain(){
+    public boolean bookSeats(int count){
+        if(count<= availableSeats){
+            availableSeats-=count;
+            return true;
+        }
 
+        return false;
+    }
+
+
+    public void cancelTicket(int count){
+        availableSeats+=count;
     }
 }
