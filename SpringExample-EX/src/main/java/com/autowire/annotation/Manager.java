@@ -13,6 +13,7 @@ public class Manager {
     @Autowired
     public Manager(Employee employee) {
         this.employee = employee;
+
     }
 
     @Override
