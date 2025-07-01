@@ -83,6 +83,10 @@ public class BookService {
     }
 
     public void viewAllUsers() {
+       if(usersList.isEmpty()){
+           System.out.println("No user found..");
+           return;
+       }
         for(User user: usersList){
             System.out.println(user);
         }
@@ -123,7 +127,15 @@ public class BookService {
         System.out.println("Book with ID " + bookId + " not found.");
     }
 
-    public void returnBook(int bookId,User user){
+    public void returnBook(int bookId,int userId){
+        User user = null;
+
+        for(User cuUser: usersList){
+            if(cuUser.getUserId() == userId){
+                user= cuUser;
+            }
+        }
+
         for(Book book: booksList){
             if(book.getId() == bookId){
                 if (!book.isIssued()) {

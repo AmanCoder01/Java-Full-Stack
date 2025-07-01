@@ -73,7 +73,8 @@ public class LibraryManagement {
             System.out.println("5. Return Book: ");
             System.out.println("6. Show Issued Book: ");
             System.out.println("7. Show user id by name: ");
-            System.out.println("8. Logout: ");
+            System.out.println("8. View All users: ");
+            System.out.println("9. Logout: ");
             System.out.print("Enter your choice: ");
             int choice = scanner.nextInt();
 
@@ -85,14 +86,21 @@ public class LibraryManagement {
                 case 5-> returnBook();
                 case 6-> showIssuedBook();
                 case 7-> showUserIdByName();
-                case 8-> adminService.logoutUser();
+                case 8-> bookService.viewAllUsers();
+                case 9-> adminService.logoutUser();
                 default -> System.out.println("Invalid choice...");
             }
         }
     }
 
     private void returnBook() {
+        System.out.print("Enter book id: ");
+        int bookId = scanner.nextInt();
 
+        System.out.print("Enter user id: ");
+        int userId = scanner.nextInt();
+
+        bookService.returnBook(bookId,userId);
     }
 
     private void showUserIdByName() {
