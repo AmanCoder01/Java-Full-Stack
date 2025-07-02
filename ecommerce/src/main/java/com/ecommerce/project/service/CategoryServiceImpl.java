@@ -1,6 +1,8 @@
 package com.ecommerce.project.service;
 
 import com.ecommerce.project.model.Category;
+import com.ecommerce.project.repositories.CategoryRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.stereotype.Service;
@@ -12,19 +14,19 @@ import java.util.Optional;
 
 @Service
 public class CategoryServiceImpl implements CategoryService{
-    private final List<Category> categories = new ArrayList<>();
+//    private final List<Category> categories = new ArrayList<>();
 
-    private Long nextId = 1L;
+    @Autowired
+    private CategoryRepository categoryRepository;
 
     @Override
     public List<Category> getAllCategories() {
-        return categories;
+        return categoryRepository.findAll();
     }
 
     @Override
     public void createCategory(Category category) {
-        category.setCategoryId(nextId++);
-        categories.add(category);
+        categoryRepository.save(category);
     }
 
     @Override
@@ -34,9 +36,11 @@ public class CategoryServiceImpl implements CategoryService{
 //                .findFirst().orElse(null);
 //        categories.remove(category);
 
+        List<Category> categories = categoryRepository.findAll();
+
         for(Category category: categories){
             if(category.getCategoryId().equals(categoryId)){
-                categories.remove(category);
+                categoryRepository.delete(category);
                 return "Category with category id "+ categoryId + " deleted successfully";
             }
         }
@@ -60,6 +64,8 @@ public class CategoryServiceImpl implements CategoryService{
 //            }
 //        }
 
+        List<Category> categories = categoryRepository.findAll();
+
         Optional<Category> optionalCategory = categories.stream()
                 .filter(c -> c.getCategoryId().equals(categoryId))
                 .findFirst();
@@ -68,6 +74,7 @@ public class CategoryServiceImpl implements CategoryService{
             Category existingCategory = optionalCategory.get();
             existingCategory.setCategoryName(category.getCategoryName());
 
+            categoryRepository.save(existingCategory);
             return "Category updated successfully of ";
         }else{
             throw new ResponseStatusException(HttpStatus.NOT_FOUND,"Category with category id "+ categoryId + " not found");
