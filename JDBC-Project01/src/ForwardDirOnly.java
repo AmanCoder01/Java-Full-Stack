@@ -3,7 +3,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-public class JDBC {
+public class ForwardDirOnly {
     // 1. Load the driver class
     // 2. Get connection from db
     // 3 . create statement
@@ -23,6 +23,7 @@ public class JDBC {
            String query = "SELECT * FROM student";
 
            ResultSet resultSet = statement.executeQuery(query);
+           // TYPE_FORWARD_ONLY , CONCURRENT_READ_ONLY; -- default
 
            System.out.println("Read");
            while (resultSet.next()){
