@@ -36,16 +36,21 @@ public class CategoryServiceImpl implements CategoryService{
 //                .findFirst().orElse(null);
 //        categories.remove(category);
 
-        List<Category> categories = categoryRepository.findAll();
+        Category category = categoryRepository.findById(categoryId)
+                .orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND,"Category with category id "+ categoryId + " not found") );
 
-        for(Category category: categories){
-            if(category.getCategoryId().equals(categoryId)){
-                categoryRepository.delete(category);
-                return "Category with category id "+ categoryId + " deleted successfully";
-            }
-        }
-
-        throw new ResponseStatusException(HttpStatus.NOT_FOUND,"Category with category id "+ categoryId + " not found");
+        categoryRepository.delete(category);
+        return "Category with category id "+ categoryId + " deleted successfully";
+        
+//
+//        for(Category category: categories){
+//            if(category.getCategoryId().equals(categoryId)){
+//                categoryRepository.delete(category);
+//                return "Category with category id "+ categoryId + " deleted successfully";
+//            }
+//        }
+//
+//        throw new ResponseStatusException(HttpStatus.NOT_FOUND,"Category with category id "+ categoryId + " not found");
     }
 
     @Override
@@ -55,29 +60,26 @@ public class CategoryServiceImpl implements CategoryService{
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Category ID and Name must not be empty");
         }
 
-//        for(Category category1: categories){
-//            if(category1.getCategoryId().equals(categoryId)){
-//                int index = categories.indexOf(category1);
-//                categories.set(index,category);
+        Category savedCategory = categoryRepository.findById(categoryId)
+                .orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND,"Category with category id "+ categoryId + " not found"));
+
+        category.setCategoryId(categoryId);
+        categoryRepository.save(category);
+
+        return "Category updated successfully";
+
+//        Optional<Category> optionalCategory = categories.stream()
+//                .filter(c -> c.getCategoryId().equals(categoryId))
+//                .findFirst();
 //
-//                return "Category updated successfully of "+ categoryId;
-//            }
+//        if(optionalCategory.isPresent()){
+//            Category existingCategory = optionalCategory.get();
+//            existingCategory.setCategoryName(category.getCategoryName());
+//
+//            categoryRepository.save(existingCategory);
+//            return "Category updated successfully of ";
+//        }else{
+//            throw new ResponseStatusException(HttpStatus.NOT_FOUND,"Category with category id "+ categoryId + " not found");
 //        }
-
-        List<Category> categories = categoryRepository.findAll();
-
-        Optional<Category> optionalCategory = categories.stream()
-                .filter(c -> c.getCategoryId().equals(categoryId))
-                .findFirst();
-
-        if(optionalCategory.isPresent()){
-            Category existingCategory = optionalCategory.get();
-            existingCategory.setCategoryName(category.getCategoryName());
-
-            categoryRepository.save(existingCategory);
-            return "Category updated successfully of ";
-        }else{
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND,"Category with category id "+ categoryId + " not found");
-        }
     }
 }
