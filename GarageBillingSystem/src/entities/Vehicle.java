@@ -47,4 +47,14 @@ public class Vehicle {
     public void setModel(String model) {
         this.model = model;
     }
+
+    @Override
+    public String toString() {
+        return "Vehicle{" +
+                "id=" + id +
+                ", customerId=" + customerId +
+                ", numberPlate='" + numberPlate + '\'' +
+                ", model='" + model + '\'' +
+                '}';
+    }
 }

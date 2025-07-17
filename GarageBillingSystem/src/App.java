@@ -25,9 +25,14 @@ public class App {
 
                     System.out.print("Phone: ");
                     String phone =sc.next();
-                    billingService.createCustomer(name,phone);
 
                     Customer customer = billingService.getCustomerByPhone(phone);
+
+                    if(customer==null){
+                        billingService.createCustomer(name,phone);
+                    }else{
+                        System.out.println("User already exists! ");
+                    }
 
                     System.out.print("Enter number plate: ");
                     String numberPlate= sc.next();
@@ -49,6 +54,7 @@ public class App {
                     }
 
                     Vehicle vehicle = billingService.getVehicleByCustomerId(customer1.getId());
+                    System.out.println(vehicle);
                     if (vehicle == null) {
                         System.out.println("❌ Vehicle not found for customer ID: " + customer1.getId());
                         break;
