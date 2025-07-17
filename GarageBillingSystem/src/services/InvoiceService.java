@@ -76,7 +76,7 @@ public class InvoiceService {
             }
 
             // Get services
-            String serviceSQL = "SELECT s.id, s.name, s.price FROM service s " +
+            String serviceSQL = "SELECT s.id, s.name, s.cost FROM service s " +
                     "JOIN invoice_service isr ON s.id = isr.service_id WHERE isr.invoice_id = ?";
             PreparedStatement psService = conn.prepareStatement(serviceSQL);
             psService.setInt(1, invoiceId);
@@ -87,7 +87,7 @@ public class InvoiceService {
                 Service s = new Service();
                 s.setId(rsService.getInt("id"));
                 s.setName(rsService.getString("name"));
-                s.setCost(rsService.getDouble("price"));
+                s.setCost(rsService.getDouble("cost"));
                 services.add(s);
             }
 

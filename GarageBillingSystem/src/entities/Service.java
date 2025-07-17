@@ -14,4 +14,13 @@ public class Service {
 
     public double getCost() { return cost; }
     public void setCost(double cost) { this.cost = cost; }
+
+    @Override
+    public String toString() {
+        return "[ " +
+                "id = " + id +
+                ", name = " + name +
+                ", cost = " + cost +
+                " ]";
+    }
 }

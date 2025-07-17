@@ -2,6 +2,7 @@ package services;
 
 import entities.Customer;
 import entities.Invoice;
+import entities.Service;
 import entities.Vehicle;
 
 import java.sql.SQLException;
@@ -18,17 +19,24 @@ public class BillingService {
        return invoiceService.createInvoice(customerId,vehicleId,serviceIds);
     }
 
-    public Invoice getInvoiceById(int id){
-        return invoiceService.getInvoiceById(id);
-    }
+    public void getInvoiceById(int id){
+        Invoice invoice = invoiceService.getInvoiceById(id);
+        System.out.println(invoice);
+        double totalCost=0;
 
-    public void showAllInvoices() throws SQLException{
-        List<Invoice> invoiceList = invoiceService.getAllInvoices();
-
-        for(Invoice invoice:invoiceList){
-            System.out.println(invoice);
+        for(Service service:invoice.getServices()){
+            totalCost+=service.getCost();
         }
+        System.out.println("Total Service Cost = "+totalCost);
     }
+
+//    public void showAllInvoices() throws SQLException{
+//        List<Invoice> invoiceList = invoiceService.getAllInvoices();
+//
+//        for(Invoice invoice:invoiceList){
+//            System.out.println(invoice);
+//        }
+//    }
 
 
     public void createCustomer(String name, String phone) throws SQLException {

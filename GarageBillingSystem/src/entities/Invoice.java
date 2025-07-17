@@ -50,4 +50,15 @@ public class Invoice {
     public void setServices(List<Service> services) {
         this.services = services;
     }
+
+    @Override
+    public String toString() {
+        return "[" +
+                "id=" + id +
+                ", customerId = " + customerId +
+                ", vehicleId = " + vehicleId +
+                ", date = " + date +
+                ", services = " + services +
+                " ]";
+    }
 }

@@ -1,4 +1,5 @@
 import entities.Customer;
+import entities.Invoice;
 import entities.Vehicle;
 import services.BillingService;
 
@@ -42,25 +43,33 @@ public class App {
                     String phn = sc.next();
 
                     Customer customer1 = billingService.getCustomerByPhone(phn);
+                    if (customer1 == null) {
+                        System.out.println("❌ Customer not found for phone: " + phn);
+                        break;
+                    }
+
                     Vehicle vehicle = billingService.getVehicleByCustomerId(customer1.getId());
+                    if (vehicle == null) {
+                        System.out.println("❌ Vehicle not found for customer ID: " + customer1.getId());
+                        break;
+                    }
 
                     System.out.print("Enter number of services: ");
-                    int servicesCount= sc.nextInt();
+                    int servicesCount = sc.nextInt();
 
                     List<Integer> serviceIds = new ArrayList<>();
-
-                    for(int i=0;i<servicesCount;i++){
-                        System.out.print("Enter Service Id "+ (i+1)+": ");
+                    for (int i = 0; i < servicesCount; i++) {
+                        System.out.print("Enter Service Id " + (i + 1) + ": ");
                         int id = sc.nextInt();
                         serviceIds.add(id);
                     }
 
-                    int invoiceId =  billingService.createInvoice(customer1.getId(),vehicle.getId(), serviceIds);
+                    int invoiceId = billingService.createInvoice(customer1.getId(), vehicle.getId(), serviceIds);
                     billingService.getInvoiceById(invoiceId);
                     break;
 
                 case 3:
-                    billingService.showAllInvoices();
+//                    billingService.showAllInvoices();
                     break;
                 case 4:
                     billingService.showAllCustomers();
