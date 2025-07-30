@@ -4,6 +4,12 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
                            http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+<bean id="petrolEngine" class="org.cfs.PertrolEngine"/>
+<bean id="car" class="org.cfs.Car">
+    <property name="engine" ref="petrolEngine">
+
+    </property>
+</bean>
 
 
 </beans>
