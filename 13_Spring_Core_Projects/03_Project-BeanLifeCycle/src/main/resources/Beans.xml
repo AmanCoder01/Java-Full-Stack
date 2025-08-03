@@ -4,10 +4,6 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
                            http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-<bean id="engine" class="org.cfs.PertrolEngine"/>
-<bean id="dieselEngine" class="org.cfs.DiesalEngine" autowire-candidate="false"/>
-<!--<bean id="car" class="org.cfs.Car" autowire="byName"/>-->
-<bean id="car" class="org.cfs.Car" autowire="byType"/>
+    <bean id="motor" class="org.example.Motor" init-method="start" destroy-method="stop"/>
 
-    
 </beans>
