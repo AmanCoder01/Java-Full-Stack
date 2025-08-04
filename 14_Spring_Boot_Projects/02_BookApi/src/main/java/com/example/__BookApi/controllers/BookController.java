@@ -67,4 +67,15 @@ public class BookController {
         return ResponseEntity.ok(bookFromDb);
     }
 
+
+
+    @PatchMapping("/{bookId}")
+    public ResponseEntity<Book> deleteBookById(@PathVariable Long bookId) {
+        Book bookFromDb = bookDb.remove(bookId);
+        if (bookFromDb == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+
+        return ResponseEntity.noContent().build();
+    }
 }
