@@ -1,18 +1,17 @@
 package com.example.__movie_api.controllers;
 
+import com.example.__movie_api.dto.CustomResponse;
 import com.example.__movie_api.models.Movie;
 import com.example.__movie_api.services.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/movies")
+@RequestMapping("/api/movies")
 public class MovieController {
 
     @Autowired
@@ -27,5 +26,19 @@ public class MovieController {
         }
 
         return ResponseEntity.ok().body(movie);
+    }
+
+
+    @PostMapping
+    public ResponseEntity<CustomResponse<Movie>> createMovie(@RequestBody Movie movie){
+        Movie savedMovie = movieService.createMovie(movie);
+
+        CustomResponse<Movie> response = new CustomResponse<>(
+                true,
+                "Movie added successfully",
+                movie
+        );
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 }

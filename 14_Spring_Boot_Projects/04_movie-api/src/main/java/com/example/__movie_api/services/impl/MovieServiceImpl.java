@@ -19,5 +19,10 @@ public class MovieServiceImpl implements MovieService {
         return new ArrayList<>(movieDb.values());
     }
 
+    @Override
+    public Movie createMovie(Movie movie) {
+        return movieDb.put(movie.getId(), movie);
+    }
+
 
 }
