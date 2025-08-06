@@ -18,14 +18,17 @@ public class MovieController {
     MovieService movieService;
 
     @GetMapping
-    public ResponseEntity<List<Movie>> getAllMovies(){
+    public ResponseEntity<CustomResponse<List<Movie>>> getAllMovies(){
         List<Movie> movie = movieService.getAllMovies();
 
+        CustomResponse<List<Movie>> response;
+
         if(movie == null){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+            response = new CustomResponse<>(false,"Movie not found !",null);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
         }
 
-        return ResponseEntity.ok().body(movie);
+        return ResponseEntity.ok(new CustomResponse<>(true,"Movie fetched...",movie));
     }
 
 
@@ -40,5 +43,49 @@ public class MovieController {
         );
 
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
+    }
+
+
+    @GetMapping("/{id}")
+    public ResponseEntity<CustomResponse<Movie>> getMovieById(@PathVariable Long id){
+        Movie movie = movieService.getMovieById(id);
+
+        CustomResponse<Movie> response;
+
+        if(movie == null){
+            response = new CustomResponse<>(false,"Movie not found !",null);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
+        }
+
+        return ResponseEntity.ok(new CustomResponse<>(true,"movie fetched",movie));
+    }
+
+    @PutMapping
+    public ResponseEntity<CustomResponse<Movie>> updateMovie(@RequestBody Movie movie){
+        Movie updatedMovie = movieService.updateMovie(movie);
+
+        CustomResponse<Movie> response;
+
+        if(updatedMovie==null){
+            response = new CustomResponse<>(false,"Movie not found !",null);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
+        }
+
+        return ResponseEntity.ok(new CustomResponse<>(true,"Movie updated successfully...",updatedMovie));
+    }
+
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<CustomResponse<Void>> deleteById(@PathVariable Long id){
+        CustomResponse<Void> response;
+
+        Movie removedMovie = movieService.deleteById(id);
+
+        if(removedMovie == null){
+            response = new CustomResponse<>(false,"Movie not found !",null);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
+        }
+
+        return ResponseEntity.ok(new CustomResponse<>(true,"Movie deleted successfully...",null));
     }
 }

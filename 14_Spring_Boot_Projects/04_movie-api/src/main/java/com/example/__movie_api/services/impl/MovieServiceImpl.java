@@ -24,5 +24,23 @@ public class MovieServiceImpl implements MovieService {
         return movieDb.put(movie.getId(), movie);
     }
 
+    @Override
+    public Movie getMovieById(Long id) {
+       return movieDb.get(id);
+    }
 
+    @Override
+    public Movie updateMovie(Movie movie) {
+        Movie exitedMovie = movieDb.get(movie.getId());
+
+        if(exitedMovie == null){
+            return null;
+        }
+       return movieDb.put(exitedMovie.getId(),movie);
+    }
+
+    @Override
+    public Movie deleteById(Long id) {
+       return movieDb.remove(id);
+    }
 }
