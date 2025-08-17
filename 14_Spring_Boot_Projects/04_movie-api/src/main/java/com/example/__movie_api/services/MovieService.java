@@ -10,4 +10,5 @@ public interface MovieService {
     Movie getMovieById(Long id);
     Movie updateMovie(Movie movie);
     Movie deleteById(Long id);
+    List<Movie> searchMovie(String genre, Integer releaseYear);
 }

@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @Service
 public class MovieServiceImpl implements MovieService {
@@ -42,5 +43,13 @@ public class MovieServiceImpl implements MovieService {
     @Override
     public Movie deleteById(Long id) {
        return movieDb.remove(id);
+    }
+
+    @Override
+    public List<Movie> searchMovie(String genre, Integer releaseYear) {
+        return movieDb.values().stream()
+                .filter(movie -> genre == null || movie.getGenre().equalsIgnoreCase(genre))
+                .filter(movie -> releaseYear == null || movie.getReleaseYear() == releaseYear)
+                .collect(Collectors.toList());
     }
 }

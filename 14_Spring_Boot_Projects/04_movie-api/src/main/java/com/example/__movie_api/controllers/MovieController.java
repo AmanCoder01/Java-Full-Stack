@@ -88,4 +88,20 @@ public class MovieController {
 
         return ResponseEntity.ok(new CustomResponse<>(true,"Movie deleted successfully...",null));
     }
+
+
+
+    @GetMapping("/search")
+    public ResponseEntity<CustomResponse<List<Movie>>> searchMovie(@RequestParam(required = false) String genre,
+                                                                   @RequestParam(required = false) Integer releaseYear){
+        List<Movie> results = movieService.searchMovie(genre,releaseYear);
+
+        CustomResponse<List<Movie>> response;
+
+        if(results.isEmpty()){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new CustomResponse<>(false,"Movie not found...",null));
+        }
+
+        return ResponseEntity.ok(new CustomResponse<>(true,"Movie filtered successfully...",results));
+    }
 }
