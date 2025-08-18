@@ -1,9 +1,6 @@
 package com.example.__JPA_Demo.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Student {
@@ -16,12 +13,23 @@ public class Student {
 
     private String email;
 
+    @OneToOne(mappedBy = "student",cascade = CascadeType.ALL)
+    private Laptop laptop;
+
     public Student() {
     }
 
     public Student(String name, String email) {
         this.name = name;
         this.email = email;
+    }
+
+    public Laptop getLaptop() {
+        return laptop;
+    }
+
+    public void setLaptop(Laptop laptop) {
+        this.laptop = laptop;
     }
 
     public Long getId() {
