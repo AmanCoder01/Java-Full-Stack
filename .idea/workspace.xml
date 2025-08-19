@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="e9de19cc-2c4d-4f02-8738-253a132a567e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/08_MultiThreading/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/08_MultiThreading/src/synchronized_demo/Hello.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/08_MultiThreading/src/synchronized_demo/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/SPARK4.0.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/14_Spring_Boot_Projects/04_movie-api/src/main/java/com/example/__movie_api/controllers/MovieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/14_Spring_Boot_Projects/04_movie-api/src/main/java/com/example/__movie_api/controllers/MovieController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/14_Spring_Boot_Projects/04_movie-api/src/main/java/com/example/__movie_api/services/MovieService.java" beforeDir="false" afterPath="$PROJECT_DIR$/14_Spring_Boot_Projects/04_movie-api/src/main/java/com/example/__movie_api/services/MovieService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/14_Spring_Boot_Projects/04_movie-api/src/main/java/com/example/__movie_api/services/impl/MovieServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/14_Spring_Boot_Projects/04_movie-api/src/main/java/com/example/__movie_api/services/impl/MovieServiceImpl.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "AmanCoder01"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/AmanCoder01/Java-Full-Stack.git",
+    "accountId": "92a10070-d9c5-43f7-b89d-eb1ffb579154"
+  }
+}]]></component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 0
+}]]></component>
+  <component name="ProjectId" id="31QExfnEpLcHqrRSydTCdfic6lD" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true"
+  }
+}]]></component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e9de19cc-2c4d-4f02-8738-253a132a567e" name="Changes" comment="" />
+      <created>1755448143966</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1755448143966</updated>
+    </task>
+    <servers />
+  </component>
+</project>
