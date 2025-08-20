@@ -44,7 +44,6 @@ public class WeatherService {
         forecast.setWeatherResponse(weatherResponse);
 
         String url = forecastUrl+"?key="+apiKey+"&q="+city+"&days="+days;
-        System.out.println(url);
         Root response = template.getForObject(url,Root.class);
 
         Forecast forecast1 = response.getForecast();

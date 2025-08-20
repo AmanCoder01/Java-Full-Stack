@@ -4,31 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4522dcb1-e509-4057-83ec-031bdb2a9c8c" name="Changes" comment="weather api">
-      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/__Weather_Project/Application.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/__Weather_Project/controller/WeatherController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/__Weather_Project/dto/Astro.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/__Weather_Project/dto/Condition.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/__Weather_Project/dto/Current.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/__Weather_Project/dto/Day.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/__Weather_Project/dto/DayTemp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/__Weather_Project/dto/Forecast.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/__Weather_Project/dto/ForecastResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/__Weather_Project/dto/Forecastday.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/__Weather_Project/dto/Hour.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/__Weather_Project/dto/Location.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/__Weather_Project/dto/Root.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/__Weather_Project/dto/WeatherResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/__Weather_Project/service/WeatherService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/__Weather_Project/ApplicationTests.java" beforeDir="false" />
-    </list>
+    <list default="true" id="4522dcb1-e509-4057-83ec-031bdb2a9c8c" name="Changes" comment="weather api" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
