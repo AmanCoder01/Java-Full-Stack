@@ -6,7 +6,7 @@ export default function WeatherSearch({ city, setCity, onSearch, loading }) {
   return (
     <div className="flex gap-3 mb-4 ">
       <Input
-        className="bg-zinc-900 border-zinc-800 w-full h-9 text-base"
+        className="bg-zinc-900 border-zinc-800  w-full h-9 text-base"
         placeholder="Enter city (e.g., Noida)"
         value={city}
         onChange={(e) => setCity(e.target.value)}

@@ -12,15 +12,15 @@ import {
 export default function ForecastChart({ series }) {
     // format data for chart
     const chartData = series.map((d) => ({
-        date: d.date.slice(5), // MM-DD
+        date: d.date.slice(6), // MM-DD
         avg: Number(d.avgTemp.toFixed(1)),
     }));
 
     return (
-        <Card className="bg-[#2eb0ae8a] rounded-2xl mt-4">
-            <CardContent className="p-6">
+        <Card className="bg-zinc-700 rounded-2xl mt-4">
+            <CardContent className="p-3">
                 <div className="flex items-center justify-between mb-4">
-                    <div className="text-lg font-medium text-zinc-400">Temperature Trend</div>
+                    <div className="text-md font-medium text-zinc-300">Temperature Trend</div>
                     <div className="text-sm text-zinc-400">
                         Avg over {series.length} days
                     </div>

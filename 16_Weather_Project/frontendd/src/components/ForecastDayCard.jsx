@@ -16,9 +16,9 @@ export default function ForecastDayCard({ day }) {
     return (
         <Card className="bg-zinc-700 border-zinc-800 rounded-xl">
             <CardContent className="">
-                <div className="text-sm text-zinc-400 mb-2">
+                <div className="text-sm text-zinc-300 mb-2">
                     {new Date(day.date).toLocaleDateString(undefined, {
-                        weekday: "short",
+                        weekday: "long",
                     })}
                 </div>
                 <div className="flex items-center gap-2">

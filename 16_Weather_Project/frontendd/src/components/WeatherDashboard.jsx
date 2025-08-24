@@ -32,7 +32,7 @@ export default function WeatherDashboard() {
         <>
           <CurrentWeather meta={data.weatherResponse} />
 
-          <h1 className="mt-4 text-sm text-center text-zinc-900 font-medium">6 Days Forecast</h1>
+          <h1 className="mt-4 text-sm text-center text-zinc-300 font-medium">6 Days Forecast</h1>
           <div className="border mt-2 mb-4 border-zinc-500 "></div>
 
           <div className="flex flex-wrap gap-1 md:gap-3 mt-4 justify-center">
@@ -41,7 +41,7 @@ export default function WeatherDashboard() {
             ))}
           </div>
 
-          {/* <ForecastChart series={data.dayTemp} /> */}
+          <ForecastChart series={data.dayTemp} />
         </>
       )}
 
